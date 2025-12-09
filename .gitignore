@@ -1,0 +1,28 @@
+# LaTeX build artifacts
+*.blg
+*.brf
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+
+# vscode config
+.vscode
+
+# python venv
+bin/
+lib/
+lib64/
+lib
+lib64
+pyvenv.cfg
+
+# python cache
+__pycache__/
