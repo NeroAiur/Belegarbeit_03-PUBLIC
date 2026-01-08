@@ -1,0 +1,24 @@
+\begin{thebibliography}{3}
+\newcommand{\enquote}[1]{``#1''}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+
+\bibitem[{Michaillat and Saez(2019)}]{MS19}
+Michaillat, Pascal and Emmanuel Saez. 2019.
+\newblock \enquote{Optimal Public Expenditure with Inefficient Unemployment.}
+\newblock \emph{Review of Economic Studies} 86~(3): 1301--1331.
+\newblock \url{https://doi.org/10.1093/restud/rdy030}.
+
+\bibitem[{Michaillat and Saez(2021)}]{MS21}
+Michaillat, Pascal and Emmanuel Saez. 2021.
+\newblock \enquote{Resolving {N}ew {K}eynesian Anomalies with Wealth in the Utility Function.}
+\newblock \emph{Review of Economics and Statistics} 103~(2): 197--215.
+\newblock \url{https://doi.org/10.1162/rest_a_00893}.
+
+\bibitem[{Michaillat and Saez(2022)}]{MS22}
+Michaillat, Pascal and Emmanuel Saez. 2022.
+\newblock \enquote{An Economical Business-Cycle Model.}
+\newblock \emph{Oxford Economic Papers} 74~(2): 382--411.
+\newblock \url{https://doi.org/10.1093/oep/gpab021}.
+
+\end{thebibliography}
