@@ -15,16 +15,19 @@ Kommentare zur Arbeit und zur Herangehensweise}}
 \available{https://github.com/NeroAiur/Belegarbeit_03-PUBLIC}
 \begin{titlepage}
 \maketitle
-Die Wahl des optimalen Webframeworks für ein Projekt ist entscheidend für viele Aspekte der Softwarelösung, zum Beispiel Effizienz,
-Skalierbarkeit und Funktionsumfang. Diese Belegarbeit analysiert und vergleicht die drei gängigsten Python Webframeworks - Django,
-FastAPI und Flask - generell und am Beispiel einer zu entwickelnden Webanwendung bei dem Praxispartner "SARAD GmbH".\\Das Ziel
-dieser Arbeit ist es das optimale Framework für das Anwendungsbeispiel zu bestimmen. Hierfür werden für die Softwarelösung wichtige
-Aspekte aufgestellt - so zum Beispiel die Komplexität, Performanz und Datenbank-Interaktion - und nach diesen recherchiert und
-gestestet. Nach Recherche und Tests werden die Ergebnisse in einem gewichteten Vergleich gegenübergestellt und ein optimales
-Framework bestimmt.\\Das Ergebnis dieser Arbeit zeigt, dass Flask, aufgrund der minimalistischen, einfachen und modularen
-Grundherangehensweise, das optimale Framework für das Anwendungsbeispiel ist und für die Erstellung der Software genutzt werden
-sollte.\\ Am Ende steht ein Fazit, welches noch einmal kurz über die Eigenschaften jedes Frameworks geht und das Ergebnis erläutert,
-mit dem Hinweis, dass das Ergebnis einer solchen Analyse stark in Abhängigkeit zum geplanten Softwareprodukt steht.
+Die Wahl des optimalen Webframeworks für ein Projekt ist entscheidend für viele Aspekte der
+Softwarelösung zum Beispiel Effizienz, Skalierbarkeit und Funktionsumfang. Diese Belegarbeit
+analysiert und vergleicht die drei gängigsten Python Webframeworks - Django, FastAPI und Flask -
+generell und am Beispiel einer zu entwickelnden Webanwendung bei dem Praxispartner "SARAD GmbH".\\
+Das Ziel dieser Arbeit ist es, das optimale Framework für das Anwendungsbeispiel zu bestimmen.
+Hierfür werden für die Softwarelösung wichtige Aspekte aufgestellt, wie zum Beispiel die
+Komplexität, Performanz und Datenbank-Interaktion, und nach diesen recherchiert und gestestet. Nach
+Recherche und Tests werden die Ergebnisse in einem gewichteten Vergleich gegenübergestellt und ein
+optimales Framework bestimmt.\\Das Ergebnis dieser Arbeit zeigt, dass Flask, aufgrund der
+minimalistischen, einfachen und modularen Grundherangehensweise, das optimale Framework für das
+Anwendungsbeispiel ist und für die Erstellung der Software genutzt werden sollte.\\ Das am Ende
+stehende Fazit erläutert zudem kurz die Eigenschaften der genannten Frameworks und verweist darauf,
+dass das Ergebnis einer solchen Analyse stark in Abhängigkeit zum geplanten Softwareprodukt steht.
 
 \clearpage
 \tableofcontents
@@ -33,121 +36,153 @@ mit dem Hinweis, dass das Ergebnis einer solchen Analyse stark in Abhängigkeit 
 % Enter main text:
 \section{Einleitung}\label{s:einleitung}
 \paragraph{Motivation}
-Mein Praxispartner, die SARAD GmbH, produziert als primären Unterneh-\\mensgegenstand Detektoren und Melder für das radioaktive
-Isotop Radon her,  welche in verschiedenen Bereichen, wie z.B. dem Bergbau oder Wohnhäusern, in Gebieten mit hoher Radon-Belastung,
-eingesetzt werden. Seit ca. 2 Jahren bietet das Unternehmen die Dienstleistung an, dass die von den einzelnen Geräten gesandten
-Daten auf einem zentralen MQTT-Broker gesendet und ebenso zentral verarbeitet werden.\\Aufgrund dieser Dienstleistung ist es
-notwendig Kundendaten ordentlich und übersicht-\\lich vorhanden zu haben um somit eine einfache Möglichkeit zu bekommen Rechnungen
-zu stellen. Derzeit werden diese Daten in einer unstrukturierten Datenbank, ohne jegliche spezifische Visualisierung, gespeichert
-und die Rechnungszeiträume müssen händisch angedacht werden. Als Teil meiner Arbeit bei der SARAD GmbH ist es meine Aufgabe eine
-zentrale Webanwendung zu entwickeln, damit die zuständigen Mitarbeiter einen geordneten Punkt haben um alle Daten visualisiert zu
-bekommen und eventuelle Verwaltungsaktionen durchzuführen.\\Als Student der Medieninformatik ist dieses Thema sehr passend, da die
-Webentwicklung einer der großen, zentralen Punkte der Medieninformatik darstellt. In diesem Projekt wird es mir also ermöglicht
-mein Webentwicklungswissen zu vertiefen, Erfahrung für die Praxis zu sammeln und eventuell mein zukünftiges Studium durch
-Praxiserfahrung zu unterstützen. Ebenso stellt das Projekt eine gute Grundlage für die Erstellung einer Bachelorarbeit dar - und
-somit diese Arbeit als nützliche Grundlage dafür.
+Mein Praxispartner, die SARAD GmbH, produziert als primären Unterneh-\\mensgegenstand Detektoren und
+Melder für das radioaktive Isotop Radon, welche in verschiedenen Bereichen, wie z.B. dem Bergbau
+oder Wohnhäusern, in Gebieten mit hoher Radon-Belastung, eingesetzt werden. Seit ca. 2 Jahren bietet
+das Unternehmen die Dienstleistung an, dass die von den einzelnen Geräten gesandten Daten auf einem
+zentralen MQTT-Broker gesendet und ebenso zentral verarbeitet werden.\\Diese Dienstleistung verlangt
+eine sowohl ordentliche als auch übersichtliche Führung vorhandener Kundendaten, um das Erstellen
+von Rechnungen zu vereinfachen. Derzeit werden diese Daten in einer unstrukturierten Datenbank, ohne
+jegliche spezifische Visualisierung, gespeichert und die Rechnungszeiträume müssen händisch
+angedacht werden. Als Teil meiner Arbeit bei der SARAD GmbH ist es meine Aufgabe eine zentrale
+Webanwendung zu entwickeln, damit die zuständigen Mitarbeiter einen geordneten Punkt haben um alle
+Daten visualisiert zu bekommen und eventuelle Verwaltungsaktionen durchzuführen.\\Als Student der
+Medieninformatik ist dieses Thema sehr passend, da die Webentwicklung einer der großen, zentralen
+Punkte der Medieninformatik darstellt. In diesem Projekt wird es mir also ermöglicht mein
+Webentwicklungswissen zu vertiefen, Erfahrung für die Praxis zu sammeln und eventuell mein
+zukünftiges Studium durch Praxiserfahrung zu unterstützen. Ebenso stellt das Projekt eine gute
+Grundlage für die Erstellung einer Bachelorarbeit dar.
 \paragraph{Problemstellung und Zielsetzung}
-Nachdem eine Bestandsaufnahme getätigt wurde, ist der erste Schritt bei der Erstellung dieser Webanwendung die Frage, welche
-Technologien ich verwenden möchte oder sollte. Eine zentrale Gruppe der Technologien zur Erstellung von Webanwendungen sind die
-Webframeworks, hiervon gibt es eine sehr große Anzahl in unterschiedlichen Programmiersprachen. Aufgrund von Aspekten, auf die ich
-im Verlauf dieser Arbeit eingehen werde, beschränkt sich die Betrachtung der Webframeworks auf jene, die für die Programmiersprache
-Python entwickelt wurden. Trotz dieser Einschränkung, gibt es weiterhin eine große Anzahl an verschiedenen Webframeworks. Da diese
-Anzahl den Rahmen dieser Arbeit sprengen würde, werde ich mich auf die drei verbreitetsten Python-Webframeworks beschränken und
-stelle mir in dieser Arbeit die Frage:\begin{center}\textbf{Welches der Python-Webframeworks - Django, FastAPI oderFlask - ist das
-geeignetste für dieses Projekt?}\end{center}Um diese Frage zu beantworten werde ich in dieser Arbeit zuerst die zu Grunde liegenden
-Anforderungen auflisten und bereits gefallene Entscheidungen erläutern, danach eine Übersicht zu jedem der drei Frameworks bieten,
-diese grundlegend und an meinem konkreten Anwendungsbeispiel analysieren und vergleichen. Am Ende steht eine auf Recherchen und
-daraus resultierenden Analysen fundierte Entscheidung, welches dieser drei Frameworks für die Entwicklung der oben genannten
-Webanwendung am besten geeignet ist.
+Nachdem eine Bestandsaufnahme getätigt wurde, ist der erste Schritt bei der Erstellung dieser
+Webanwendung die Frage, welche Technologien ich verwenden möchte oder sollte. Eine zentrale Gruppe
+der Technologien zur Erstellung von Webanwendungen sind die Webframeworks, wovon es eine sehr große
+Anzahl in unterschiedlichen Programmiersprachen gibt. Aufgrund von Aspekten, auf die ich im Verlauf
+dieser Arbeit eingehen werde, beschränkt sich die Betrachtung der Webframeworks auf jene, die für
+die Programmiersprache Python entwickelt wurden. Trotz dieser Einschränkung, gibt es weiterhin eine
+große Anzahl an verschiedenen Webframeworks. Da diese Anzahl den Rahmen dieser Arbeit sprengen
+würde, werde ich mich auf die drei verbreitetsten Python-Webframeworks beschränken, wodurch sich die
+Leitfrage dieser Arbeit ergibt:\begin{center}\textbf{Welches der Python-Webframeworks - Django,
+FastAPI oderFlask - ist das geeignetste für dieses Projekt?}\end{center}Um diese Frage zu
+beantworten, werde ich zu Beginn die zu Grunde liegenden Anforderungen auflisten und bereits
+gefallene Entscheidungen erläutern, anschließend eine Übersicht zu jedem der drei Frameworks bieten
+und diese grundlegend und an meinem konkreten Anwendungsbeispiel analysieren und vergleichen. Am
+Ende steht eine auf Recherchen und den daraus resultierenden Analysen fundierte Entscheidung,
+welches dieser drei Frameworks für die Entwicklung der oben genannten Webanwendung am besten
+geeignet ist.
 
 \section{Anforderungen}\label{s:anforderungen}
-Im folgenden Abschnitt gehe ich auf die verschiedenen Anforderungsaspekte ein und lege den Grundsatz für die Recherche, die Analyse
-und den Vergleich der Webframeworks.\\Wie bereits in der Einleitung beschrieben stellt sich zuerst folgende Frage - Warum soll die
-Webanwendung mit der Programmiersprache Python, anstatt mit einer etablierteren oder spezialisierteren Sprache, wie zum Beispiel PHP
-oder JavaScript mit Node.js, entwickelt werden? Die Wahl der Programmiersprache resultierte aus drei simplen, aber kritischen
-Gründen:
-\paragraph{Eigene Vorkenntnisse}Ich habe bereits, durch vorherige berufliche und private Projekte, insgesamt über 5 Jahre
-unterschiedlichste Erfahrungen in der Entwicklung mit Python gesammelt und habe damit die meiste Erfahrung. Die Nutzung von Python
-reduziert somit die Entwicklungszeit immens, da ich mich nicht in eine mir eher unbekannte oder gänzlich unbekannte Sprache
-einarbeiten muss.
-\paragraph{Vorkenntnisse der Mitarbeiter}Die anderen Mitarbeiter der IT- und Entwicklungsabteilung der SARAD GmbH haben ebenso
-einige Vorkenntnisse in der Nutzung von Python. Somit ist es für diese leichter nachzuvollziehen, wie der Quellcode der Anwendung
-geschrieben ist und es ist ebenso einfacher möglich bei Bedarf Änderungen zu tätigen, nachdem ich das Unternehmen verlassen habe.
-\paragraph{Vorhandene Skripte}Neben der Datenvisualisierung sollen über die Anwendung ebenso Skripte\footnote{die genannten Skripte
-werden für die Zertifizierung (Erstellung von Zertifikaten, Rückzug der Zertifikate und Bearbeitung von Berechtigungen) und die
-Erstellung der Windows-Installationsdateien genutzt. Eine interne Bezeichnung des überstehenden Meta-Skripts ist "MUST - MQTT User
-Service Tools"} auf einem internen Server ausgeführt werden. Diese Skripte sind, aktuell teilweise und zukünftig vollständig, in
-Python geschrieben.\\
+Im folgenden Abschnitt gehe ich auf die verschiedenen Anforderungsaspekte ein und lege den Grundsatz
+für die Recherche, die Analyse und den Vergleich der Webframeworks.\\Wie bereits in der Einleitung
+beschrieben stellt sich zuerst folgende Frage - Warum soll die Webanwendung mit der
+Programmiersprache Python, anstatt mit einer etablierteren oder spezialisierteren Sprache, wie zum
+Beispiel PHP oder JavaScript mit Node.js, entwickelt werden? Die Wahl der Programmiersprache
+resultierte aus drei simplen, aber kritischen Gründen:
+\paragraph{Eigene Vorkenntnisse}Ich habe bereits, durch vorherige berufliche und private Projekte,
+insgesamt über 5 Jahre unterschiedlichste Erfahrungen in der Entwicklung mit Python gesammelt und
+habe damit die meiste Erfahrung. Die Nutzung von Python reduziert somit die Entwicklungszeit immens,
+da ich mich nicht in eine mir eher unbekannte oder gänzlich unbekannte Sprache einarbeiten muss.
+\paragraph{Vorkenntnisse der Mitarbeiter}Die anderen Mitarbeiter der IT- und Entwicklungsabteilung
+der SARAD GmbH haben ebenso Vorkenntnisse in der Nutzung von Python. Somit ist es für diese leichter
+nachzuvollziehen, wie der Quellcode der Anwendung geschrieben ist und es ist ebenso einfacher
+möglich bei Bedarf Änderungen zu tätigen, nachdem ich das Unternehmen verlassen habe.
+\paragraph{Vorhandene Skripte}Neben der Datenvisualisierung sollen über die Anwendung ebenso Skripte
+\footnote{die genannten Skripte werden für die Zertifizierung (Erstellung von Zertifikaten, Rückzug
+der Zertifikate und Bearbeitung von Berechtigungen) und die Erstellung der
+Windows-Installationsdateien genutzt. Eine interne Bezeichnung des überstehenden Meta-Skripts ist
+"MUST - MQTT User Service Tools"} auf einem internen Server ausgeführt werden. Aktuell sind diese
+Skripte nur teilweise in Python geschrieben, was sich jedoch zukünftig ändern wird.
 
-Die Wahl der Programmiersprache grenzt zwar bereits die Anzahl der Webframeworks immens ein, dennoch bleibt eine Anzahl von mehr als
-50 Webframeworks\footnote{als Grundlage dieser Schätzung wurde die Anzahl an Python-Frameworks genutzt, die bei den TechEmpower-Benchmarks
-vorhanden sind.} übrig. Wie bereits in der Einleitung beschrieben, habe ich mich auf die drei Webframeworks Django,
-FastAPI und Flask begrenzt. Die Gründe hierfür sind:
+Die Wahl der Programmiersprache grenzt zwar bereits die Anzahl der Webframeworks immens ein, dennoch
+bleibt eine Anzahl von mehr als 50 Webframeworks\footnote{als Grundlage dieser Schätzung wurde die
+Anzahl an Python-Frameworks genutzt, die bei den TechEmpower-Benchmarks vorhanden sind.} übrig. Wie
+bereits in der Einleitung beschrieben, habe ich mich auf die drei Webframeworks Django, FastAPI und
+Flask begrenzt. Die Gründe hierfür sind:
 \begin{itemize}
-	\item\textbf{Verbreitung:} Django, FastAPI und Flask sind die aktuelle verbreitesten Webframeworks für Python. Das macht die
-	Arbeit mit diesen Frameworks sehr viel einfacher, da es eine große Anzahl an verschiedenen Quellen, Tutorials oder bereits
-	beantwortete Fragen im Internet gibt. Ebenso gibt es eine Großzahl von unterschiedlichen Meinungen zu diesen Frameworks, was
-	die Recherche und Evaluation erleichtert.
-	\item\textbf{Karrierechancen:} Auch wenn möglicherweise kleinere, besser für meinen Anwendungszweck geeignete Webframework-
-	Projekte im Python-Kosmos existieren, kann ich bei der Arbeit mit Django, FastAPI und Flask wichtige Arbeitserfahrung sammeln,
-	welche mir zukünftig weitere Karrierechancen ermöglichen können.
-	\item\textbf{Vorerfahrungen und Interesse:} In der Vergangenheit konnte ich bereits erste Erfahrungen mit dem Django-Framework
-	sammeln. Im Falle von FastAPI und Flask habe ich zwar noch nicht mit diesen gearbeitet, jedoch ist mein Interesse an diesen
-	beiden Frameworks hoch, da ich bereits Einblicke in Projekte, die mit diesen Frameworks entstanden sind, gewinnen konnte.
-	\item\textbf{Varianz:} Die drei Kandidaten bieten eine hohe Varianz in ihrer Herangehensweise als Webframework und spiegeln so
-	grundlegend unterschiedliche Archetypen mit unterschiedlichen Fokuspunkten und Philosophien wider.\\
+	\item\textbf{Verbreitung:} Django, FastAPI und Flask sind die aktuelle verbreitetsten
+	Webframeworks für Python. Das macht die Arbeit mit diesen Frameworks sehr viel einfacher, da es
+	eine große Anzahl an verschiedenen Quellen, Tutorials oder bereits beantwortete Fragen im
+	Internet gibt. Ebenso gibt es eine Großzahl von unterschiedlichen Meinungen zu diesen
+	Frameworks, was die Recherche und Evaluation erleichtert.
+	\item\textbf{Karrierechancen:} Auch wenn möglicherweise kleinere, besser für meinen
+	Anwendungszweck geeignete Webframework- Projekte im Python-Kosmos existieren, kann ich bei der
+	Arbeit mit Django, FastAPI und Flask wichtige Arbeitserfahrung sammeln, welche mir zukünftig
+	weitere Karrierechancen ermöglichen können.
+	\item\textbf{Vorerfahrungen und Interesse:} In der Vergangenheit konnte ich bereits erste
+	Erfahrungen mit dem Django-Framework sammeln. Im Falle von FastAPI und Flask habe ich zwar noch
+	nicht mit diesen gearbeitet, jedoch ist mein Interesse an diesen beiden Frameworks hoch, da ich
+	bereits Einblicke in Projekte, die mit diesen Frameworks entstanden sind, gewinnen konnte.
+	\item\textbf{Varianz:} Die drei Kandidaten bieten eine hohe Varianz in ihrer Herangehensweise
+	als Webframework und spiegeln so grundlegend unterschiedliche Archetypen mit unterschiedlichen
+	Fokuspunkten und Philosophien wider.
 \end{itemize}
-Um konkrete Gesichtspunkt für eine Recherche und Analyse dieser Webframeworks zu haben, ist es notwendig klare Anforderungen an die
-Softwarelösung zu definieren.\\Aus den Gesprächen mit meinem Betreuer, Herrn Michael Strey, und eigenen Überlegungen wurden folgende
-Ansprüche an die Softwarelösung gesetzt - sortiert in absteigender Priorität:
+Um konkrete Gesichtspunkte für eine Recherche und Analyse dieser Webframeworks zu erhalten, ist es
+notwendig, klare Anforderungen an die Softwarelösung zu definieren.\\Aus den Gesprächen mit meinem
+Betreuer, Herrn Michael Strey, und eigenen Überlegungen wurden folgende Ansprüche an die
+Softwarelösung gesetzt - sortiert in absteigender Priorität:
 \begin{itemize}
-	\item\textbf{Visualisierung einer Datenbank:} Die notwendigen Kunden- und Vertragsdaten sollen in einer Datenbank gespeichert
-	werden. Die Aufgabe der Software soll es sein diese Datensätze vollständig und tabellarisch im Browser darzustellen. Aufgrund der
-	Art der Daten ist eine relationale Datenbank notwendig\footnote{zum Zeitpunkt der Verfassung ist noch nicht festgelegt welche
-	Datenbanklösung verwerdet wird. Tendenziell wird entweder MariaDB oder SQLite verwendet}. Das bedeutet, dass die Software eine
-	Art des ORM\footnote{Object-relational mapping} benötigt.
-	\item\textbf{Komplexität:} Da die Softwarelösung rein intern eingesetzt werden soll, soll sie nicht unnötig komplex und groß
-	sein. Bestenfalls sollen nur die wirklich benötigten Funktionen eingebaut werden.
-	\item\textbf{Ausführung von Skripten auf einer internen Maschine:} Es soll über die Webanwendung die Möglichkeit bestehen
-	Python-Skripte auf einem internen Server auszuführen. Hierfür wird eine API-Schnittstelle benötigt.
-	\item\textbf{Eigene Einschätzung:} Da ich der einzige Entwickler dieser Softwarelösung sein werde, ist meine eigene Einschätzung
-	der Frameworks, wie passend sie mit ihren Eigenschaften für dieses Projekt sind, ein wichtiger Gesichtspunkt. Ebenso ist mein
-	eigenes Interesse an der Arbeit mit den Frameworks relevant.
-	\item\textbf{Performanz:} Die Menge der Nutzer dieser Software wird sich auf insgesamt maximal 4-5 Personen beziehen.
-	Dementsprechend ist davon auszugehen, dass nur etwa 1-2 Anfragen gleichzeitig stattfinden werden. Diese Tatsache macht den Aspekt der
-	Performanz, zwar deutlich unwichtiger als er sonst bei Webanwendungen wäre, jedoch ist es immer noch ein relevanter Punkt.
-	\item\textbf{Erweiterbarkeit:} Da sich Software und die Anforderungen an diese andauernd verändern, soll es Möglichkeiten geben
-	die Webanwendung zukünftig einfach zu erweitern, falls sich neue Anforderungen an das Produkt ergeben sollten.
+	\item\textbf{Visualisierung einer Datenbank:} Die notwendigen Kunden- und Vertragsdaten sollen
+	in einer Datenbank gespeichert werden. Die Aufgabe der Software soll es sein diese, Datensätze
+	vollständig und tabellarisch im Browser darzustellen. Aufgrund der Art der Daten ist eine
+	relationale Datenbank notwendig\footnote{zum Zeitpunkt der Verfassung ist noch nicht festgelegt
+	welche Datenbanklösung verwerdet wird. Tendenziell wird entweder MariaDB oder SQLite verwendet}.
+	Das bedeutet, dass die Software eine Art des ORM\footnote{Object-relational mapping} benötigt.
+	\item\textbf{Komplexität:} Da die Softwarelösung rein intern eingesetzt werden soll, soll sie
+	nicht unnötig komplex und groß sein. Bestenfalls sollen nur die wirklich benötigten Funktionen
+	eingebaut werden.
+	\item\textbf{Ausführung von Skripten auf einer internen Maschine:} Es soll über die Webanwendung
+	die Möglichkeit bestehen Python-Skripte auf einem internen Server auszuführen. Hierfür wird eine
+	API-Schnittstelle benötigt.
+	\item\textbf{Eigene Einschätzung:} Da ich der einzige Entwickler dieser Softwarelösung sein
+	werde, ist meine eigene Einschätzung der Frameworks, wie passend sie mit ihren Eigenschaften für
+	dieses Projekt sind, ein wichtiger Gesichtspunkt. Ebenso ist mein eigenes Interesse an der
+	Arbeit mit den Frameworks relevant.
+	\item\textbf{Performanz:} Die Menge der Nutzer dieser Software wird sich auf insgesamt maximal
+	4-5 Personen belaufen. Dementsprechend ist davon auszugehen, dass nur etwa 1-2 Anfragen
+	gleichzeitig stattfinden werden. Diese Tatsache macht den Aspekt der Performanz zwar deutlich
+	unwichtiger als er sonst bei Webanwendungen wäre, jedoch ist es immer noch ein relevanter Punkt.
+	\item\textbf{Erweiterbarkeit:} Da sich Software und die Anforderungen an diese andauernd
+	verändern, soll es Möglichkeiten geben, die Webanwendung zukünftig einfach zu erweitern, falls
+	sich neue Anforderungen an das Produkt ergeben sollten.
 \end{itemize}
 
 \section{Frameworks}
-Im folgenden Abschnitt gehe ich auf die einzelnen Frameworks ein. Dabei werde ich auf allgemeine Informationen zum Framework an
-sich, die grundlegende Philosophie sowie die Schritte zu einer simplen "Hello World"-Website\footnote{einfachste anzunehmende
-Anwendung - die Software gibt einfach nur den Text "Hello World" zurück} eingehen. Nach jedem Beispiel steht eine kleine Aufstellung
-von Aspekten die für oder gegen das Framework sprechen \footnote{diese Aspekte sind aus eigener Erfahrung entstanden. Es wurde
-jeweils etwa 5 Stunden mit jedem Framework gearbeitet um diese Aspekte benennen zu können.}.
+Im folgenden Abschnitt gehe ich auf die einzelnen Frameworks ein. Dabei werde ich auf allgemeine
+Informationen zum Framework an sich, die grundlegende Philosophie sowie die Schritte zu einer
+simplen "Hello World"-Website\footnote{einfachste anzunehmende Anwendung - die Software gibt einfach
+nur den Text "Hello World" zurück} eingehen. Nach jedem Beispiel steht eine kleine Aufstellung von
+Aspekten die für oder gegen das Framework sprechen \footnote{diese Aspekte sind aus eigener
+Erfahrung entstanden. Es wurde jeweils etwa 5 Stunden mit jedem Framework gearbeitet um diese
+Aspekte benennen zu können.}.
 \subsection{Django}
-Django, ursprünglich entwickelt von Adrian Holovaty und Simon Willison, wurde im Juli 2005 veröffentlicht und ist damit das älteste
-der drei Frameworks, die sich im Vergleich befinden. Aktuell befindet sich Django in der Version 6.0\footnote{am 3. Dezember 2025
-veröffentlicht} und wird heutzutage von der Django Software Foundation\footnote{NonProfit-Organisation zur Entwicklung und
-Instandhaltung von Django} aktuell gehalten. Das Framework ist vollständig Open-Source und ist zu etwa 97\% in Python\footnote{
-siehe \url{https://github.com/django/django}} geschrieben. Das Framework wird als \textit{"The Webframework for perfectionists
-with deadlines"} beschrieben und verfolgt als Full-Stack-Lösung eine \textit{"batteries included"}-Philosophie, was so viel
-bedeutet, wie, dass Django grundsätzlich mit allen Modulen und Funktionen, die eine Webanwendung benötigt, kommt. Unter diesen Modulen
-und Funktionen befinden sich zum Beispiel ein Entwicklungs-Webserver für Tests, ein Templating-System, ein dynamisches Admin-Interface
-und ein Authentifikations-System. Zudem ist Django auch noch mit Drittanbieter-Paketen erweiterbar.
+Django, ursprünglich entwickelt von Adrian Holovaty und Simon Willison, wurde im Juli 2005
+veröffentlicht und ist damit das älteste der drei Frameworks, die sich im Vergleich befinden.
+Aktuell befindet sich Django in der Version 6.0\footnote{am 3. Dezember 2025 veröffentlicht} und
+wird heutzutage von der Django Software Foundation\footnote{NonProfit-Organisation zur Entwicklung
+und Instandhaltung von Django} auf dem neusten Stand gehalten. Das Framework ist vollständig
+Open-Source und ist zu etwa 97\% in Python\footnote{siehe \url{https://github.com/django/django}}
+geschrieben. Das Framework wird als \textit{"The Webframework for perfectionists
+with deadlines"} beschrieben und verfolgt als Full-Stack-Lösung eine
+\textit{"batteries included"}-Philosophie, was so viel bedeutet, dass Django grundsätzlich mit allen
+Modulen und Funktionen, die eine Webanwendung benötigt, kommt. Unter diesen Modulen und Funktionen
+befinden sich zum Beispiel ein Entwicklungs-Webserver für Tests, ein Templating-System, ein
+dynamisches Admin-Interface und ein Authentifikations-System. Zudem ist Django auch noch mit
+Drittanbieter-Paketen erweiterbar.
 \clearpage
 \subsubsection{Anwendungsbeispiel}
-Django liegt eine grundlegende Unterscheidung zu Grunde - \textbf{Projekte und Apps}.\\Eine App ist eine vollständige
-Web-Applikation, die etwas ausführt. Apps können zum Beispiel eine Umfrage, ein Blog oder die angeforderte Softwarelösung sein.\\Ein
-Projekt ist eine Sammlung von Konfigurationen und Apps für eine bestimmte Website.\\Bei diesem System gilt, dass ein Projekt mehrere
-Apps beinhalten kann und eine App in mehreren Projekten vorhanden sein kann.\\Im Falle dieses Anwendungsbeispiels ist ein Projekt
-und eine App notwendig\footnote{selbiges würde auch für die geplante Softwarelösung gelten.}.\\Im Nachfolgenden werden die Schritte
-\footnote{alle hier beschrieben Aktionen wurden in einer Linux-Distribution druchgeführt, falls man diese Schritte mit einem anderen
-Betriebssystem durchführen möchte, muss man die entsprechenden Befehlsäquivalente benutzen} beschrieben um ein einfaches
-Django-Projekt mit einer "Hello World"-App aufzusetzen:
+Django liegt eine grundlegende Unterscheidung zu Grunde - \textbf{Projekte und Apps}.\\Eine App ist
+eine vollständige Web-Applikation, die etwas ausführt. Apps können zum Beispiel eine Umfrage, ein
+Blog oder die angeforderte Softwarelösung sein.\\Ein Projekt ist eine Sammlung von Konfigurationen
+und Apps für eine bestimmte Website.\\Bei diesem System gilt, dass ein Projekt mehrere Apps
+beinhalten kann und eine App in mehreren Projekten vorhanden sein kann.\\Im Falle dieses
+Anwendungsbeispiels ist ein Projekt und eine App notwendig\footnote{selbiges würde, aus aktueller
+Sicht, auch für die geplante Softwarelösung gelten.}.\\Nachfolgend werden die Schritte
+\footnote{alle in dieser Arbeit beschrieben Aktionen wurden in einer Linux-Distribution
+druchgeführt, falls man diese Schritte mit einem anderen Betriebssystem durchführen möchte, muss man
+die entsprechenden Befehlsäquivalente benutzen} beschrieben um ein einfaches Django-Projekt mit
+einer "Hello World"-App aufzusetzen:
 \begin{enumerate}
-	\item\textbf{Installation mittels pip}\footnote{Paketmanager von Python}\\Folgender Befehl wird ausgeführt:
+	\item\textbf{Installation mittels pip}\footnote{Paketmanager von Python}\\Folgender Befehl wird
+	ausgeführt:
 	\begin{verbatim}
 		python -m pip install Django
 	\end{verbatim}
@@ -178,7 +213,8 @@ Django-Projekt mit einer "Hello World"-App aufzusetzen:
 	\begin{verbatim}
 		python manage.py startapp myapp
 	\end{verbatim}
-	Nach diesem shell-Befehl entsteht im \verb|django|-directory folgende zusätzliche\\Dateistruktur:
+	Nach diesem shell-Befehl entsteht im \verb|django|-directory folgende zusätzliche\\
+	Dateistruktur:
 	\begin{verbatim}
 		django
 		  ...
@@ -235,27 +271,32 @@ Django-Projekt mit einer "Hello World"-App aufzusetzen:
 	\label{f:graph1}\end{figure}
 \end{enumerate}
 \subsubsection{Pros und Contras}
-Die offensichtlichen Vorteile von Django sind klar – \textbf{es wird sofort fast\footnote{eine API-Schnittstelle fehlt und muss mit
-einem Community-Paket importiert werden - auf diesen Aspekt wird im Abschnitt "Vergleich und Analyse" eingegangen} alles
-mitgeliefert}, was bei einer Webapplikation benötigt werden könnte, und es wird eine \textbf{klare Dateistruktur} erstellt, die bei
-jedem einzelnen Django-Projekt gleich ist, was speziell bei zukünftiger, erneuter Arbeit mit Django ein Vorteil ist. Es ist jedoch
-\textbf{schwer sich erst einmal überhaupt in diese Struktur einzuarbeiten}. Zusätzlich zu der Struktur kommt der für
-Python-Verhältnisse \textbf{komplexe Quellcode} und der \textbf{große Konfigurationsaufwand}. Einen großen Teil\footnote{geschätzt
-40\% der Zeit} bei der Einarbeitungszeit mit Django wurde dafür verwendet in der Dokumentation nachzuschlagen.
+Die offensichtlichen Vorteile von Django sind klar – \textbf{es wird sofort fast\footnote{eine
+API-Schnittstelle fehlt und muss mit einem Community-Paket importiert werden - auf diesen Aspekt
+wird im Abschnitt "Vergleich und Analyse" eingegangen} alles mitgeliefert}, was bei einer
+Webapplikation benötigt werden könnte. Zudem wird eine \textbf{klare Dateistruktur} erstellt, die
+bei jedem einzelnen Django-Projekt gleich ist, was speziell bei zukünftiger, erneuter Arbeit mit
+Django ein Vorteil ist. \textbf{Die erstemalige Einarbeitung in diese Struktur gestaltet sich jedoch
+als schwierig}. Zusätzlich zu der Struktur kommt der für Python-Verhältnisse \textbf{komplexe
+Quellcode} und der \textbf{große Konfigurationsaufwand}. Ein großer Teil\footnote{geschätzt 40\% der
+Zeit} bei der Einarbeitungszeit mit Django wurde dafür verwendet, in der Dokumentation
+nachzuschlagen.
 \clearpage
 \subsection{FastAPI}
-FastAPI, enwtickelt und instandgehalten von Sebastián "tiangolo" Ramírez, wurde im Dezember 2018 veröffentlicht und ist damit das
-jüngste der Framework-Kandidaten. Aktuell befindet sich FastAPI in der Version 0.124.4\footnote{am 12. Dezember 2025 veröffentlicht}
-und ist ein Open-Source API-Framework, welches zu 100\% in Python\footnote{siehe \url{https://github.com/fastapi/fastapi}}
-geschrieben ist. FastAPI ist eine ausschließliche Backend-Lösung für APIs und hat somit keine Frontendfunktionen, wie einen
-Template-Renderer. Im Kern und der Namensgebung von FastAPI befindet sich die Geschwindigkeit des Frameworks, welche durch die
-grundlegend asynchrone Funktionabilität entsteht.
+FastAPI, enwtickelt und instandgehalten von Sebastián "tiangolo" Ramírez, wurde im Dezember 2018
+veröffentlicht und ist damit das jüngste der Framework-Kandidaten. Aktuell befindet sich FastAPI in
+der Version 0.124.4\footnote{am 12. Dezember 2025 veröffentlicht} und ist ein Open-Source
+API-Framework, welches zu 100\% in Python\footnote{siehe \url{https://github.com/fastapi/fastapi}}
+geschrieben ist. FastAPI ist eine ausschließliche Backend-Lösung für APIs und hat somit keine
+Frontendfunktionen, wie einen Template-Renderer. Im Kern und der Namensgebung von FastAPI befindet
+sich die Geschwindigkeit des Frameworks, welche durch die grundlegend asynchrone Funktionabilität
+entsteht.
 
 \subsubsection{Anwendungsbeispiel}
 \begin{enumerate}
-	\item\textbf{FastAPI und Uvicorn installieren}\\FastAPI kann mittels \verb|pip| installiert werden. Da FastAPI keinen
-	integrierten Entwicklungssever hat. Um FastAPI zu starten wird der ASGI-Server "uvicorn" benötigt. Es wird folgender Befehl
-	ausgeführt:
+	\item\textbf{FastAPI und Uvicorn installieren}\\FastAPI kann mittels \verb|pip| installiert
+	werden. Da FastAPI keinen integrierten Entwicklungssever hat, wird der ASGI-Server "uvicorn"
+	benötigt um FastAPI zu starten. Es wird folgender Befehl ausgeführt:
 	\begin{verbatim}
 		python pip install fastapi uvicorn
 	\end{verbatim}
@@ -287,21 +328,26 @@ grundlegend asynchrone Funktionabilität entsteht.
 \end{enumerate}
 
 \subsubsection{Pros und Contras}
-FastAPI, im direkten Vergleich zu Django hat nahezu keinen Konfigurationsaufwand und hat eine sehr kleine Dateistruktur. Der
-Quellcode ist aufgrund meiner Vorerfahrungen mit Asynchronität in Python\footnote{Vorerfahrungen entstanden hauptsächlich bei der
-Arbeit mit discord.py - eine Schnittstelle zur Interaktion mit Bots auf der Kommunikationsplattform Discord} sehr leicht
-verständlich. Auch die komplett automatisch erzeugte OpenAI \footnote{ehemals Swagger} Dokumentation ist sehr nützlich, jedoch gibt
-es ein konkretes, großes Problem - FastAPI hat keinen Frontend-Kontext, hierfür benötigte es weitere Frameworks, wie React.
+FastAPI hat im direkten Vergleich zu Django nahezu keinen Konfigurationsaufwand und eine sehr kleine
+Dateistruktur. Der Quellcode ist aufgrund meiner Vorerfahrungen mit Asynchronität in
+Python\footnote{Vorerfahrungen entstanden hauptsächlich bei der Arbeit mit discord.py - eine
+Schnittstelle zur Interaktion mit Bots auf der Kommunikationsplattform Discord} sehr leicht
+verständlich. Auch die komplett automatisch erzeugte OpenAI \footnote{ehemals Swagger} Dokumentation
+ist sehr nützlich. Es gibt jedochjedoch gibt es ein konkretes, großes Problem: FastAPI hat keinen
+Frontend-Kontext, hierfür benötigte es weitere Frameworks, wie React.
 
 \subsection{Flask}
-Das dritte und letzte Framework in der Auswahl, Flask, wurde am 1. April 2010 ursprünglich als Aprilscherz von Armin Ronacher
-veröffentlicht. Aktuell befindet sich Flask in der Version 3.1.2\footnote{am 19.08.2025 veröffentlicht} und wird heutzutage von der
-"Pallets"-Organisation\footnote{Organisation, welche beliebte und weiter verbreitete Python-Frameworks weiterentwickelt und instand
-hält, z.B. Jinja, ein Template-Framework} erweitert und instand gehalten.
+Das dritte und letzte Framework in der Auswahl, Flask, wurde am 1. April 2010 ursprünglich als
+Aprilscherz von Armin Ronacher veröffentlicht. Aktuell befindet sich Flask in der Version
+3.1.2\footnote{am 19.08.2025 veröffentlicht} und wird heutzutage von der
+"Pallets"-Organisation\footnote{Organisation, welche beliebte und weiter verbreitete
+Python-Frameworks weiterentwickelt und instand hält, z.B. Jinja, ein Template-Framework} erweitert
+und instand gehalten.
 \clearpage
-Das Framework ist zu 100\% in Python geschrieben undvollständig Open Source. Wie Django, ist Flask ist eine Fullstack-Lösung, besitzt
-jedoch eine grundlegend gegensätzliche Philosophie –Minimalismus. Flask wird als Micro-Framework bezeichnet und kommt an sich mit sehr
-wenigen Komponenten, das Grundframework kann jedoch mit vielen verschiedenen Community-Paketen erweitert werden.
+Das Framework ist zu 100\% in Python geschrieben undvollständig Open Source. Flask ist, wie Django,
+eine Fullstack-Lösung, besitzt jedoch eine grundlegend gegensätzliche Philosophie –Minimalismus.
+Flask wird als Micro-Framework bezeichnet und wird mit sehr wenigen Komponenten bereit gestellt. Das
+Grundframework kann jedoch mit vielen verschiedenen Community-Paketen erweitert werden.
 
 \subsubsection{Anwendungsbeispiel}
 \begin{enumerate}
@@ -337,19 +383,23 @@ wenigen Komponenten, das Grundframework kann jedoch mit vielen verschiedenen Com
 \end{enumerate}
 
 \subsubsection{Pros und Contras}
-Flask bietet die Simplizität von FastAPI mit dem Funktionsumfang von Django, wenn man sich die entsprechenden Pakete hinzuzieht, die
-man für sein Projekt benötigt. Für die notwendigen SQL-Operationen benötigt es zum Beispiel eine Erweiterung\footnote{genutzt wurde
-flask-sqlalchemy}, eine Vorgehensweise, die sich bei der Arbeit mit Flask als roter Faden durchzieht. Ein potentielles Problem ist, dass
-viele Erweiterungen von Flask von unterschiedlichsten Entwicklern erstellt werden, weshalb eventuell Konflikte entstehen können –
-ich konnte jedoch keine solche in meiner Einarbeitung feststellen.
+Flask bietet die Simplizität von FastAPI mit dem Funktionsumfang von Django, wenn man sich die
+entsprechenden Pakete hinzuzieht, die man für sein Projekt benötigt. Für die notwendigen
+SQL-Operationen benötigt es zum Beispiel eine Erweiterung\footnote{genutzt wurde flask-sqlalchemy},
+eine Vorgehensweise, die sich bei der Arbeit mit Flask als roter Faden durchzieht. Ein potentielles
+Problem ist, dass viele Erweiterungen von Flask von unterschiedlichsten Entwicklern erstellt werden,
+weshalb eventuell Konflikte entstehen können. Diese eventuelle Problematik zeigte sich in meiner
+Einarbeitung jedoch nicht.
 
 \section{Analyse und Vergleich}
-Im nachfolgenden Teil gehe ich auf jedes Kriterium genau ein, und gebe jedem Framework in dem Kriterium eine Punktzahl zwischen 0
-und 5 Punkten, wobei 0 bedeutet, dass das Framework das Kriterium gar nicht erfüllt und 5 bedeutet, dass das Kriterium bestens
-erfüllt wird. Jedes Kriterium erhält ebenso eine tabellarische Übersicht zur Punkteverteilung mit Anmerkungen.
+Im nachfolgenden Teil gehe ich auf jedes Kriterium genau ein und gebe jedem Framework in dem
+Kriterium eine Punktzahl zwischen 0 und 5 Punkten, wobei 0 bedeutet, dass das Framework das
+Kriterium gar nicht erfüllt und 5 bedeutet, dass das Kriterium bestens erfüllt wird. Jedes Kriterium
+erhält ebenso eine tabellarische Übersicht zur Punkteverteilung mit Anmerkungen.
 
-Für die konkrete Evaluation und den Vergleich der drei Webframeworks, benötigt man Kriterien. Da bereits in den Anforderungen die
-wichtigsten Gesichtspunkte grundlegend genannt wurden, müssen diese jetzt konkretisiert werden.
+Für die konkrete Evaluation und den Vergleich der drei Webframeworks benötigt man Kriterien. Da
+bereits in den Anforderungen die wichtigsten Gesichtspunkte grundlegend genannt wurden, müssen diese
+jetzt konkretisiert werden.
 
 \begin{table}[h!]
 	\begin{center}
@@ -393,15 +443,17 @@ wichtigsten Gesichtspunkte grundlegend genannt wurden, müssen diese jetzt konkr
 \end{table}
 
 \subsection{Frontend}
-Da die Softwarelösung eine visuelle Webanwendung sein soll, ist eine Frontend-Kompo-\\nente absolut unverzichtbar. Sowohl Django als
-auch Flask kommen in ihrer Standardfassung mit einer vollständigen Frontend-Engine mit eingebautem Template-Rendering. Das bedeutet,
-dass HTML-Dateien als Templates mit entsprechenden Variablen-Feldern gepseichert werden. Beim Aufruf der Website werden die
-Template-Variablen mit entsprechenden Inhalten ersetzt und somit eine Website mit den entsprechenden Daten angezeigt. Somit sind
-alle Anforderungen erfüllt und es werden 5 von 5 Punkten vergeben.
+Da die Softwarelösung eine visuelle Webanwendung sein soll, ist eine Frontend-Kompo-\\nente absolut
+unverzichtbar. Sowohl Django als auch Flask kommen in ihrer Standardfassung mit einer vollständigen
+Frontend-Engine mit eingebautem Template-Rendering. Das bedeutet, dass HTML-Dateien als Templates
+mit entsprechenden Variablen-Feldern gepseichert werden. Beim Aufruf der Website werden die
+Template-Variablen mit entsprechenden Inhalten ersetzt und somit eine Website mit den entsprechenden
+Daten angezeigt. Somit sind alle Anforderungen erfüllt und es werden 5 von 5 Punkten vergeben.
 
-FastAPI ist von Grund auf ein reines API-Framework, besitzt also KEINE Frontend-Engine. Um entsprechende Frontend-Inhalte zu
-produzieren würde es ein weiteres Framework benötigen. Da in dieser Analyse ausschließlich auf die drei genannten Frameworks
-geschaut wird, müssen 0 von 5 Punkten vergeben werden.
+FastAPI ist von Grund auf ein reines API-Framework, besitzt also KEINE Frontend-Engine. Um
+entsprechende Frontend-Inhalte zu produzieren würde es ein weiteres Framework benötigen. Da in
+dieser Analyse ausschließlich die drei genannten Frameworks betrachtet werden, müssen 0 von 5
+Punkten vergeben werden.
 
 \begin{table}[h!]
 	\begin{center}
@@ -420,17 +472,20 @@ geschaut wird, müssen 0 von 5 Punkten vergeben werden.
 \end{table}
 
 \subsection{Datenbank-Integration}
-Um die richtigen Inhalte an das Template-Rendering zu übergeben benötigt es eine entsprechende Datenbank-Integration. Weiter oben
-wurde bereits festgelegt, dass aufgrund der Art der Daten eine relationale Datenbank notwendig ist, was automatisch bedeutet, dass
-ein entsprechendes ORM vonnöten ist.
+Um die richtigen Inhalte an das Template-Rendering zu übergeben benötigt es eine entsprechende
+Datenbank-Integration. Weiter oben wurde bereits festgelegt, dass aufgrund der Art der Daten eine
+relationale Datenbank notwendig ist, was automatisch bedeutet, dass ein entsprechendes ORM vonnöten
+ist.
 
-Django hat out-of-the-box ein integriertes ORM, somit können volle 5 von 5 Punkten vergeben werden. Sowohl FastAPI als auch Flask
-kommen nicht direkt mit einem integrierten ORM, jedoch gibt es für beide Frameworks eine konkrete Lösung: Bei FastAPI wird empfohlen
-SQLModel zu nutzen, ein ORM, welches vom selben Entwickler erschaffen wurde. Im Falle von Flask existiert ein Modul mit dem Namen
-"Flask-SQLAlchemy", welches ein konkretes Flask-Modul des weit verbreiteten Python-Paket "SQLAlchemy"\footnote{dieses Paket beinhält
-sowohl ein ORM, als auch ein Toolkit zur Arbeit mit relationalen Daten} ist. Aufgrund der bereits etablierten Modularität von Flask
-habe ich mich dafür entschieden Flask in diesem Punkt etwas höher als FastAPI zu bewerten. Dementsprechend erhält FastAPI 3.5 von 5
-Punkten und Flask 4 von 5 Punkten.
+Django hat out-of-the-box ein integriertes ORM, somit können volle 5 von 5 Punkten vergeben werden.
+Sowohl FastAPI als auch Flask kommen nicht direkt mit einem integrierten ORM, jedoch gibt es für
+beide Frameworks eine konkrete Lösung: Bei FastAPI wird empfohlen SQLModel zu nutzen, ein ORM,
+welches vom selben Entwickler erschaffen wurde. Im Falle von Flask existiert ein Modul mit dem Namen
+"Flask-SQLAlchemy", welches ein konkretes Flask-Modul des weit verbreiteten Python-Paket
+"SQLAlchemy"\footnote{dieses Paket beinhält sowohl ein ORM, als auch ein Toolkit zur Arbeit mit
+relationalen Daten} ist. Aufgrund der bereits etablierten Modularität von Flask habe ich mich dafür
+entschieden Flask in diesem Punkt etwas höher als FastAPI zu bewerten. Dementsprechend erhält
+FastAPI 3.5 von 5 Punkten und Flask 4 von 5 Punkten.
 \begin{table}[h!]
 	\begin{center}
 		\begin{tabular}{|c||c|c|}
@@ -451,17 +506,20 @@ Punkten und Flask 4 von 5 Punkten.
 \clearpage
 
 \subsection{Komplexität}
-Da ich mit keinem der drei Frameworks viel Erfahrung sammeln konnte, ist der Aspekt der Komplexität und Lernkurve relevant, damit
-ich schnellstmöglich ordentlich mit diesen arbeiten und die Webanwendung entwickeln kann.
+Da ich mit keinem der drei Frameworks viel Erfahrungen sammeln konnte, ist der Aspekt der
+Komplexität und Lernkurve relevant, damit ich schnellstmöglich ordentlich mit diesen arbeiten und
+die Webanwendung entwickeln kann.
 
-Django hat aufgrund der komplexen Dateistruktur, dem Konfigurationsaufwand und
-hohen Anzahl von integrierten Modulen, eine sehr hohe Einstiegshürde\footnote{die offizielle Django-Dokumentation besitzt, abseits
-von How-To und FAQ-Punkten, ~270 Punkte und Unterpunkte}. Deswegen erhält Django 2 von 5 Punkten. Sowohl FastAPI als auch Flask
-haben einfache Dateistrukture und wenige Module "out-of-the-box", was den Einstieg sehr vereinfacht. Häufig wird als
-Einstiegsschwierigkeit bei diesen beiden Frameworks das Arbeiten mit Asnychronität genannt - diesen Punkt werde ich jedoch außen vor
-lassen, da ich bereits viele Erfahrungen mit dem Entwickeln mit Asnychronität gesammelt habe und dies somit keine Hürde mehr
-darstellt. FastAPI erhält deswegen 5 von 5 Punkten. Im Fall von Flask ziehe ich jedoch einen Punkt ab, da die Modulauswahl und
--nutzung am Anfang für Probleme sorgen kann – somit landet Flask bei 4 von 5 Punkten.
+Django hat aufgrund der komplexen Dateistruktur, dem Konfigurationsaufwand und hohen Anzahl von
+integrierten Modulen eine sehr hohe Einstiegshürde\footnote{die offizielle Django-Dokumentation
+besitzt, abseits von How-To und FAQ-Punkten, ~270 Punkte und Unterpunkte}. Deswegen erhält Django 2
+von 5 Punkten. Sowohl FastAPI als auch Flask haben einfache Dateistrukturen und wenige Module
+"out-of-the-box", was den Einstieg sehr vereinfacht. Häufig wird als Einstiegsschwierigkeit bei
+diesen beiden Frameworks das Arbeiten mit Asnychronität genannt - diesen Punkt werde ich jedoch
+außen vor lassen, da ich bereits viele Erfahrungen mit dem Entwickeln mit Asnychronität gesammelt
+habe und dies somit keine Hürde mehr darstellt. FastAPI erhält deswegen 5 von 5 Punkten. Im Fall von
+Flask ziehe ich jedoch einen Punkt ab, da die Modulauswahl und -nutzung am Anfang für Probleme
+sorgen kann. Somit erhält Flask 4 von 5 Punkten.
 \begin{table}[h!]
 	\begin{center}
 		\begin{tabular}{|c||c|c|}
@@ -482,15 +540,18 @@ darstellt. FastAPI erhält deswegen 5 von 5 Punkten. Im Fall von Flask ziehe ich
 \end{table}
 
 \subsection{API-Schnittstelle}
-Um die Ausführung der Skripte zu gewährleisten, ist es notwendig, per API-Call einen Befehl an die entsprechende Maschine zu senden.
-Dementsprechend ist eine API-Schnitt-\\stelle notwendig, um das durchzuführen.
+Um die Ausführung der Skripte zu gewährleisten, ist es notwendig, per API-Call einen Befehl an die
+entsprechende Maschine zu senden. Dementsprechend ist eine API-Schnitt-\\stelle notwendig, um das
+durchzuführen.
 
-Django hat kein integriertes API-Framework. Hierfür benötigt man das "Django REST framework", welches man separat installieren
-muss, ebenso ist diese Software nicht vom offiziellen Django-Entwicklerteam. Django erhält in diesem Aspekt 3 von 5 Punkten - einen
-Punkt Abzug dafür, dass das REST-Framework nicht integriert ist und einen weiteren, da es fragwürdig ist, dass eine so zentrale
-Funktion eines Frameworks, bei einer "batteries included"-Philosophie, fehlt. FastAPI ist ein reines API-Framework, demenstprechend
-erhält es 5 von 5 Punkten. Flask benötigt für API-Calls ein Modul,  "FlaskRESTful", welches nicht standardmäßig integriert ist.
-Flask erhält deswegen 4 von 5 Punkten. 
+Django hat kein integriertes API-Framework. Hierfür benötigt man das "Django REST framework",
+welches man separat installieren muss, ebenso ist diese Software nicht vom offiziellen
+Django-Entwicklerteam. Django erhält in diesem Aspekt 3 von 5 Punkten - einen Punkt Abzug dafür,
+dass das REST-Framework nicht integriert ist und einen weiteren, da es fragwürdig ist, dass eine so
+zentrale Funktion eines Frameworks, bei einer "batteries included"-Philosophie, fehlt. FastAPI ist
+ein reines API-Framework, demenstprechend erhält es 5 von 5 Punkten. Flask benötigt für API-Calls
+ein Modul,  "FlaskRESTful", welches nicht standardmäßig integriert ist. Flask erhält deswegen 4 von
+5 Punkten. 
 
 \begin{table}[h!]
 	\begin{center}
@@ -509,24 +570,30 @@ Flask erhält deswegen 4 von 5 Punkten.
 \end{table}
 
 \subsection{Eigene Einschätzung}
-Da ich selbst mit einem der Frameworks arbeiten muss, ist es ebenso relevant wie meine Einstellung zu jedem ist.
+Da ich selbst mit einem der Frameworks arbeiten muss, ist es ebenso relevant wie meine Einstellung
+zu jedem ist.
 
-Ich habe bereits in zwei kleineren Projekte mit Django gearbeitet, dennoch habe ich nicht nicht ansatzweise ausreichend Erfahrungen
-sammeln können, um einen Vorteil zu haben. Die hohe Komplexität, das hohe Konfigurationsmanagement und die riesige Anzahl an Modulen
-sorgt dafür, dass ich Django in diesem Projekt als "Overkill" erachte. Das bedeutet, dass das, was Django bietet, schlichtweg zu viel
-ist und nicht benötigt wird. Aufgrund dieser Aspekte erhält Django insgesamt 2 von 5 Punkten.
+Ich habe bereits in zwei kleineren Projekte mit Django gearbeitet, dennoch habe ich nicht nicht
+ansatzweise ausreichend Erfahrungen sammeln können, um einen Vorteil zu haben. Die hohe Komplexität,
+das hohe Konfigurationsmanagement und die riesige Anzahl an Modulen sorgt dafür, dass ich Django in
+diesem Projekt als "Overkill" erachte. Das bedeutet, dass das, was Django bietet, schlichtweg zu
+viel ist und nicht benötigt wird. Aufgrund dieser Aspekte erhält Django insgesamt 2 von 5 Punkten.
 
-Die Entwicklung von FastAPI war über die letzten Jahre für mich immer sehr interessant zu verfolgen – nichtzuletzt, da auch Freunde
-und Bekannte intesiv mit diesem Framework arbeiten. Die Performanz und Simplizität dieses Frameworks lässt mich vermuten, dass es
-zukünfitg eine größere Rolle spielen wird. Das größte Problem, das FastAPI hat, ist, dass es ausschließlich eine Backend-Engine ist.
-Für dieses Projekt ist das sehr ungünstig, da ich der einzige Entwickler bin und ich somit noch ein zweites Framework, z.B. React,
-benötigen würde, um den Frontend-Teil zu realisieren. FastAPI erhält deswegen 3 von 5 Punkten.
+Die Entwicklung von FastAPI war über die letzten Jahre für mich immer sehr interessant zu verfolgen
+– nichtzuletzt, da auch Freunde und Bekannte intesiv mit diesem Framework arbeiten. Die Performanz
+und Simplizität dieses Frameworks lässt mich vermuten, dass es zukünfitg eine größere Rolle spielen
+wird. Das größte Problem, das FastAPI hat, ist, dass es ausschließlich eine Backend-Engine ist. Für
+dieses Projekt ist das sehr ungünstig, da ich der einzige Entwickler bin und ich somit noch ein
+zweites Framework, z.B. React, benötigen würde, um den Frontend-Teil zu realisieren. FastAPI erhält
+deswegen 3 von 5 Punkten.
 
-Anfangs war Flask simplerweise ein dritter Kandidat, jedoch hat sich diese Betrachtung über die Arbeit hinweg stark geändert. Die
-grundlegende Einarbeitung und Flask waren sehr interessant für mich und die grundlegende Modularität macht es einfach Projekte nach
-Bedarf zu erweiteren und nur das zu nutzen, was auch wirklich benötigt wird. Häufig wird die Performanz von Flask als Schwäche
-genannt, da diese sehr abhängig von den genutzten Modulen ist. Da dieses Projekt nur wenige Module nutzen wird, sollte das jedoch
-kein Problem darstellen. Flask erhält deswegen die vollen 5 Punkte.
+Anfangs war Flask simplerweise ein dritter Kandidat, jedoch hat sich diese Betrachtung über die
+Arbeit hinweg stark geändert. Die grundlegende Einarbeitung und Flask an sich waren sehr interessant
+für mich und die grundlegende Modularität macht es einfach, Projekte nach Bedarf zu erweiteren und
+nur das zu nutzen, was auch wirklich benötigt wird. Häufig wird die Performanz von Flask als
+Schwäche genannt, da diese sehr abhängig von den genutzten Modulen ist. Da dieses Projekt nur wenige
+Module nutzen wird, sollte das jedoch kein Problem darstellen. Flask erhält deswegen die vollen 5
+Punkte.
 
 \begin{table}[h!]
 	\begin{center}
@@ -548,10 +615,11 @@ kein Problem darstellen. Flask erhält deswegen die vollen 5 Punkte.
 \end{table}
 
 \subsection{Performanz}
-Auch wenn Performanz in diesem Projekt eher eine untergeordnete Rolle spielt, ist sie einer der besten Aspekte eines Frameworks, um
-konkrete Vergleiche zu machen. Die Benchmarks beziehe ich von TechEmpower's Round 21\footnote{vom 19.07.2022}, da dies das letzte
-Benchmark von TechEmpower ist, in dem alle drei Kandidaten vorhanden sind. Von jedem Testtypen werden die "Best"-Tabellen herangezogen,
-insofern sie vorhanden sind:
+Auch wenn Performanz in diesem Projekt eher eine untergeordnete Rolle spielt, ist sie einer der
+besten Aspekte eines Frameworks, um konkrete Vergleiche zu machen. Die Benchmarks beziehe ich von
+TechEmpower's Round 21\footnote{vom 19.07.2022}, da dies das letzte Benchmark von TechEmpower ist,
+in dem alle drei Kandidaten vorhanden sind. Von jedem Testtypen werden die "Best"-Tabellen
+herangezogen, insofern sie vorhanden sind:
 \begin{itemize}
 	\item bei den Tests "Multiple queries" und "Data updates" wird die "20-queries"-Tabelle genutzt
 	\item beim "Cached queries"-Test gibt es keine verfügbaren Daten
@@ -578,13 +646,15 @@ insofern sie vorhanden sind:
 	\label{table:7}
 \end{table}
 
-Anhand dieser Tabelle sieht man, dass FastAPI in fast allen Fällen mit Abstand die beste Perfomanz bietet und Django überall die
-schlechteste, teilweise nur ~1/8 der Performanz von FastAPI. Die Ergebnisse von Flask sind generell etwas skeptisch zu betrachten,
-da die Performanz von Flask sehr stark davon abhängig ist, welche und wie viele Module benutzt werden. Es ist aber davon auszugehen,
-dass Flask in vielen Fällen eine bessere Performanz bietet als Django. Ein weiterer, wichtiger, performanzbezogener Gesichtspunkt
-ist, dass Django standardmäßig snychron arbeitet, FastAPI und Flask jedoch asynchron, wodurch mehrere Anfragen gleichzeitig besser
-verarbeitet werden können. Bezugnehmend auf alle diese Aspekte bekommt Django 2 von 5 Punkten, FastAPI 5 von 5 Punkten und Flask
-3,5 von 5 Punkten.
+Anhand dieser Tabelle sieht man, dass FastAPI in fast allen Fällen mit Abstand die beste Perfomanz
+bietet und Django überall die schlechteste, teilweise nur ~1/8 der Performanz von FastAPI. Die
+Ergebnisse von Flask sind generell etwas skeptisch zu betrachten, da die Performanz von Flask sehr
+stark davon abhängig ist, welche und wie viele Module benutzt werden. Es ist aber davon auszugehen,
+dass Flask in vielen Fällen eine bessere Performanz bietet als Django. Ein weiterer, wichtiger, 
+erformanzbezogener Gesichtspunkt ist, dass Django standardmäßig snychron arbeitet, FastAPI und Flask
+jedoch asynchron, wodurch mehrere Anfragen gleichzeitig besser verarbeitet werden können.
+Bezugnehmend auf alle diese Aspekte bekommt Django 2 von 5 Punkten, FastAPI 5 von 5 Punkten und
+Flask 3,5 von 5 Punkten.
 
 \begin{table}[h!]
 	\begin{center}
@@ -604,25 +674,30 @@ verarbeitet werden können. Bezugnehmend auf alle diese Aspekte bekommt Django 2
 \end{table}
 
 \subsection{Erweiterbarkeit}
-Zwar ist die Erweiter- und Skalierbarkeit in diesem Projekt nicht von großer Bedeutung, jedoch für die allgemeine Betrachtung der
-Frameworks. Es ist wichtig zu erwähnen, dass eine vertikale Skalierung\footnote{vertikale Skalierung kann man vereinfacht als
-Erhöhung Rechenleistung der bereits vorhandenen Maschinen beschreiben} immer eine Grenze hat, die sich am aktuellen Technologiestand
-orientiert, eine horizontale Skalierung\footnote{horizontale Skalierung kann man vereinfacht als Erhöhung der Anzahl benutzter
-Maschinen beschreiben} keine\footnote{es gibt theoretische Grenzen, z.B. gesamt verfügbare Ressourcen auf dem Planeten Erde, jedoch
-sind diese praktisch nicht relevant und für ein Unternehmen real erreichbar} Grenzen besitzt, wenn man finanzielle Aspekte
-ignoriert.
+Zwar ist die Erweiter- und Skalierbarkeit in diesem Projekt nicht von großer Bedeutung, jedoch für
+die allgemeine Betrachtung der Frameworks. Es ist wichtig zu erwähnen, dass eine vertikale
+Skalierung\footnote{vertikale Skalierung kann man vereinfacht als Erhöhung Rechenleistung der
+bereits vorhandenen Maschinen beschreiben} immer eine Grenze hat, die sich am aktuellen
+Technologiestand orientiert und eine horizontale Skalierung\footnote{horizontale Skalierung kann man
+vereinfacht als Erhöhung der Anzahl benutzter Maschinen beschreiben} keine\footnote{es gibt
+theoretische Grenzen, z.B. gesamt verfügbare Ressourcen auf dem Planeten Erde, jedoch sind diese
+praktisch nicht relevant und für ein Unternehmen unerreichbar} Grenzen besitzt, wenn man finanzielle
+Aspekte ignoriert.
 
-Django, mit der "batteries included"-Philosophie, kommt als Gesamtpaket. Das bedeutet, dass eine Erweiterung in vielen Fällen nicht
-notwendig ist, jedoch gibt es einige Möglichkeiten zur Erweiterung\footnote{siehe Abschnitt "API-Schnittstelle"}. Aufgrund der
-primär synchronen Arbeitsweise von Django, ist eine vertikale Skalierung eher weniger von Relevanz, da die Arbeitslast nicht
-asynchron vom gleichen Prozess bearbeitet werden kann, sondern per Loadbalancer an verschiedene Prozesse, Prozessoren oder gar
-Maschinen verteilt werden muss. Django erhält damit 3 von 5 Punkten. FastAPI hat ebenso einige Erweiterungsmöglichkeiten
-\footnote{siehe Abschnitt "Datenbank-Integration}, kommt aber schnell an seine Limitationen\footnote{siehe Abschnitt "Frontend"}.
-Bezüglich Skalierung ist es bei FastAPI, aufgrund der asynchronen Arbeitsweise, deutlich leichter vertikal zu skalieren. Damit
-erhält FastAPI ebenso 3 von 5 Punkten. Flask hat als Kern eine modulare Philosophie und ist damit sehr leicht nach Bedarf
-erweiterbar. Es besteht jedoch Achtung, da die Anzahl und Art von Modulen die Leistung des Frameworks beeinflussen kann. Wie
-bereits bei FastAPI, sorgt die asynchrone Arbeitsweise von Flask dafür, dass vertikale Skalierung sinnvoller zu realisieren ist.
-Flask erhält damit 5 von 5 Punkten.
+Django, mit der "batteries included"-Philosophie, kommt als Gesamtpaket. Das bedeutet, dass eine
+Erweiterung in vielen Fällen nicht notwendig ist, jedoch gibt es einige Möglichkeiten zur
+Erweiterung\footnote{siehe Abschnitt "API-Schnittstelle"}. Aufgrund der primär synchronen
+Arbeitsweise von Django ist eine vertikale Skalierung eher weniger von Relevanz, da die Arbeitslast
+nicht asynchron vom gleichen Prozess bearbeitet werden kann, sondern per Loadbalancer an
+verschiedene Prozesse, Prozessoren oder gar Maschinen verteilt werden muss. Django erhält damit
+3 von 5 Punkten. FastAPI hat ebenso einige Erweiterungsmöglichkeiten \footnote{siehe Abschnitt
+"Datenbank-Integration}, kommt aber schnell an seine Limitationen\footnote{siehe Abschnitt
+"Frontend"}. Bezüglich Skalierung ist es bei FastAPI, aufgrund der asynchronen Arbeitsweise,
+deutlich leichter vertikal zu skalieren. Damit erhält FastAPI ebenso 3 von 5 Punkten. Flask hat als
+Kern eine modulare Philosophie und ist damit sehr leicht nach Bedarf erweiterbar. Jedoch ist zu
+beachten, dass die Anzahl und Art von Modulen die Leistung des Frameworks beeinflussen kann. Wie
+bereits bei FastAPI, sorgt die asynchrone Arbeitsweise von Flask dafür, dass vertikale Skalierung
+sinnvoller zu realisieren ist. Flask erhält damit 5 von 5 Punkten.
 
 \begin{table}[h!]
 	\begin{center}
@@ -644,8 +719,8 @@ Flask erhält damit 5 von 5 Punkten.
 \end{table}
 
 \subsection{Community}
-Alle drei Frameworks haben eine große Community, viele Ressourcen und zahlreiche Möglichkeiten Antworten auf seine Fragen zu
-bekommen. Daher erhalten alle 5 von 5 Punkten.
+Alle drei Frameworks haben eine große Community, viele Ressourcen und zahlreiche Möglichkeiten
+Antworten auf seine Fragen zu bekommen. Daher erhalten alle 5 von 5 Punkten.
 
 \subsection{Zusammenfassung}
 Es folgt eine Übersicht über alle oben genannten Aspekte und die vergebenen Punkte:
@@ -672,30 +747,36 @@ Es folgt eine Übersicht über alle oben genannten Aspekte und die vergebenen Pu
 	\end{center}
 	\label{table:10}
 \end{table}
-FastAPI belegt in diesem Vergleich den letzten Platz, was eindeutig auf die Notwendig-\\keit der Frontend-Engine zurückzuführen ist,
-die FastAPI nicht bietet. Blendete man diesen Aspekt aus, belegte FastAPI einen sehr starken zweiten Platz. Django ist in
-den Aspekten Frontend und Datenbank-Integration die beste Wahl, jedoch fällt die fehlende integrierte API-Schnittstelle, die
-Komplexität dieses Frameworks  und schwache Performanz stark negativ auf. Das alles sorgte dafür, dass Django auf dem letzten Platz
-landet. Flask zeigt sich durch die immense Flexibilität und Simplizität, die es bietet, als Sieger dieses Vergleichs und damit als
-das passendste Framework für dieses Projekt.
+FastAPI belegt in diesem Vergleich den letzten Platz, was eindeutig auf die Notwendig-\\keit der
+Frontend-Engine zurückzuführen ist, die FastAPI nicht bietet. Blendete man diesen Aspekt aus,
+belegte FastAPI einen sehr starken zweiten Platz. Django ist in den Aspekten Frontend und
+Datenbank-Integration die beste Wahl, jedoch fällt die fehlende integrierte API-Schnittstelle, die
+Komplexität dieses Frameworks  und schwache Performanz stark negativ auf. Das alles sorgte dafür,
+dass Django am sclhectesten bewertet wurde. Flask zeigt sich durch die immense Flexibilität und
+Simplizität, die es bietet, als Sieger dieses Vergleichs und damit als das passendste Framework für
+dieses Projekt.
 
 \section{Fazit}
-Alle verglichenen Frameworks haben, wie in dieser Arbeit ausführlich beschrieben, ihre Vor- und Nachteile und eignen sich für
-unterschiedliche Projekte. Dementsprechend ist das Ergebnis nicht allgemeingültig zu betrachten. \textbf{Django} ist aufgrund seiner
-grundlegenden Struktur und beigelieferten Module eine gute Lösung für stabile, große Projekte, bei denen bestenfalls verschiedene, selbst
-entwickelte, Module vermehrt eingesetzt werden können, um das volle Potential der Apps-Projects-Unterscheidung auszuschöpfen, jedoch
-benötigt man viel Erfahrung, um mit diesem Framework schnell und produktiv arbeiten zu können, anstatt regelmäßig in der
-Dokumentation nachzulesen. \textbf{FastAPI} lädt dazu ein, eine klare Unterteilung von Entwicklern in Frontend und Backend zu
-tätigen, und legt einen klaren und deutlichen Fokus auf Geschwindigkeit und Performanz der APIs. Es ist am besten für Projekte
-geeignet, in denen diese Aspekte einen wichtigen Aspekt darstellen. \textbf{Flask} ist am ehesten für kleinere Projekte geeginet, die
-nicht alle Module benötigen, welche Django mitliefert. Das Framework hat ebenso eine niedrige Einstiegshürde und eignet sich
-dementsprechnd für alle Entwickler, unabhängig vom Erfahrungsstand.
+Alle verglichenen Frameworks haben, wie in dieser Arbeit ausführlich beschrieben, ihre Vor- und
+Nachteile und eignen sich für unterschiedliche Projekte. Dementsprechend ist das Ergebnis nicht
+allgemeingültig zu betrachten. \textbf{Django} ist aufgrund seiner grundlegenden Struktur und
+beigelieferten Module eine gute Lösung für stabile, große Projekte, bei denen bestenfalls
+verschiedene, selbst entwickelte, Module vermehrt eingesetzt werden können, um das volle Potential
+der Apps-Projects-Unterscheidung auszuschöpfen, man benötigt jedoch viel Erfahrung, um mit diesem
+Framework schnell und produktiv arbeiten zu können, anstatt regelmäßig in der Dokumentation
+nachzulesen. \textbf{FastAPI} lädt dazu ein, eine klare Unterteilung von Entwicklern in Frontend und
+Backend zu tätigen und legt einen klaren und deutlichen Fokus auf Geschwindigkeit und Performanz
+der APIs. Es ist am besten für Projekte geeignet, bei denen diese Aspekte eine wichtige Rolle
+darstellen. \textbf{Flask} ist am ehesten für kleinere Projekte geeginet, die nicht alle Module
+benötigen, welche Django mitliefert. Das Framework hat ebenso eine niedrige Einstiegshürde und
+eignet sich dementsprechnd für alle Entwickler, unabhängig vom Erfahrungsstand.
 
-Im Fall des spezifizierten Softwareproduktes eignet sich, wie man aus der Analyse herauslesen kann, Flask am deutlichsten, da sich
-die Vorteile von Flask mit den Anforderungen decken und die Nachteile des Frameworks nahezu irrelevant sind.
+Im Fall des spezifizierten Softwareproduktes eignet sich, wie man aus der Analyse herauslesen kann,
+Flask am deutlichsten, da sich die Vorteile von Flask mit den Anforderungen decken und die Nachteile
+des Frameworks nahezu irrelevant sind.
 
 \clearpage
-\section{Quelleangabe}
+\section{Quellenangabe}
 Offizielle Dokumentationen:
 \begin{itemize}
 	\item Django: \url{https://docs.djangoproject.com/en/5.0/}\\(Letzter Aufruf: 08.01.2026 9:58)
@@ -749,7 +830,7 @@ Sonstige Quellen:
 	\item \url{silbentrennung24.de}
 	\item \url{scholar.google.com}
 	\item \url{google.com}
-	\item Korrekturlesende: Dennis
+	\item Korrekturlesende: Dennis, Nicole
 \end{itemize}
 
 \end{document}
