@@ -4,6 +4,9 @@
 \hypersetup{pdftitle={Belegarbeit Sebastian Schöneich - Vergleich von Python Webframeworks}}
 \newcommand{\bib}{paper.bib}
 \newcommand{\pdf}{figures.pdf}
+\renewcommand{\contentsname}{Inhaltsangabe}
+\renewcommand{\listfigurename}{Abbildungsverzeichnis}
+\renewcommand{\listtablename}{Tabellenverzeichnis}
 
 \begin{document}
 \title{Vergleich von Python-Webframeworks\\Django vs. FastAPI vs. Flask}
@@ -11,7 +14,6 @@
 \thanks{Duale Hochschule Sachsen - Standort Dresden, SARAD GmbH. Ich bedanke mich bei Komillitonen und Kollegen für Einblicke und
 Kommentare zur Arbeit und zur Herangehensweise}}
 \date{Januar 2026}   
-% Enter permanent URL (can be commented out):
 \available{https://github.com/NeroAiur/Belegarbeit_03-PUBLIC}
 \begin{titlepage}
 \maketitle
@@ -31,9 +33,11 @@ dass das Ergebnis einer solchen Analyse stark in Abhängigkeit zum geplanten Sof
 
 \clearpage
 \tableofcontents
+\clearpage
+\listoffigures
+\listoftables
 \end{titlepage}
 
-% Enter main text:
 \section{Einleitung}\label{s:einleitung}
 \paragraph{Motivation}
 Mein Praxispartner, die SARAD GmbH, produziert als primären Unterneh-\\mensgegenstand Detektoren und
@@ -267,7 +271,7 @@ einer "Hello World"-App aufzusetzen:
 	Der Server ist nun hochgefahren und beim Aufruf der Seite \url{http://localhost:8000/myapp/} öffnet sich die oben stehende Website.
 	\begin{figure}[t]
 	\includegraphics[scale=0.7,page=1]{\pdf}\hfill
-	\caption{Django "Hello World"-Seite}
+	\caption{Firefox Screenshot - Django "Hello World"-Seite}
 	\label{f:graph1}\end{figure}
 \end{enumerate}
 \subsubsection{Pros und Contras}
@@ -321,7 +325,7 @@ entsteht.
 	Der Server ist nun hochgefahren und beim Aufruf der Seite \url{http://localhost:8000} öffnet sich oben stehende Website
 	\begin{figure}[t]
 	\includegraphics[scale=0.7,page=2]{\pdf}\hfill
-	\caption{FastAPI "Hello World"-Seite}
+	\caption{Firefox Screnshot - FastAPI "Hello World"-Seite}
 	\note{Die von FastAPI erstellte "Hello World"-Seite ist tatsächlich ein JSON-Objekt und keine HTML-Datei, wie es normalerweise ist.}
 	\label{f:graph2}\end{figure}
 	
@@ -378,7 +382,7 @@ Grundframework kann jedoch mit vielen verschiedenen Community-Paketen erweitert 
 	Der Server ist nun hochgefahren und beim Aufruf der Seite \url{http://localhost:5000} öffnet sich folgende Website:
 	\begin{figure}[t]
 	\includegraphics[scale=0.7,page=3]{\pdf}\hfill
-	\caption{Flask "Hello World"-Seite}
+	\caption{Firefox Screenshot - Flask "Hello World"-Seite}
 	\label{f:graph3}\end{figure}
 \end{enumerate}
 
@@ -774,7 +778,6 @@ eignet sich dementsprechnd für alle Entwickler, unabhängig vom Erfahrungsstand
 Im Fall des spezifizierten Softwareproduktes eignet sich, wie man aus der Analyse herauslesen kann,
 Flask am deutlichsten, da sich die Vorteile von Flask mit den Anforderungen decken und die Nachteile
 des Frameworks nahezu irrelevant sind.
-
 \clearpage
 \section{Quellenangabe}
 Offizielle Dokumentationen:
@@ -815,8 +818,6 @@ Sonstige Quellen:
 	\item Wikipedia: \url{https://en.wikipedia.org/wiki/FastAPI}\\(Letzter Aufruf: 05.01.2026 11:17)
 	\item Wikipedia: \url{https://en.wikipedia.org/wiki/Flask_(web_framework)}\\(Letzer Aufruf: 05.01.2026 11:18)
 \end{itemize}
-
-\clearpage
 \section{Hilfsmittel}
 \begin{itemize}
 	\item LaTeX-Vorlage: Pascal Michaillat - Minimalist LaTeX Template for Academic Papers: \url{https://github.com/pmichaillat/latex-paper}
