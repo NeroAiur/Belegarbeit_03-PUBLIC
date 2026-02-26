@@ -1,11 +1,35 @@
 # Belegarbeit 3. Semester Medieninformatik
 **Thema: Vergleich von Python-Webframeworks - Django vs. FastAPI vs. Flask**
 
+Die Wahl des optimalen Webframeworks für ein Projekt ist entscheidend für viele Aspekte
+der Softwarelösung zum Beispiel Effizienz, Skalierbarkeit und Funktionsumfang. Diese
+Belegarbeit analysiert und vergleicht die drei gängigsten Python Webframeworks - Django,
+FastAPI und Flask - generell und am Beispiel einer zu entwickelnden Webanwendung bei
+dem Praxispartner "SARAD GmbH".
+
+Das Ziel dieser Arbeit ist es, das optimale Framework für das Anwendungsbeispiel zu
+bestimmen. Hierfür werden für die Softwarelösung wichtige Aspekte aufgestellt, wie
+zum Beispiel die Komplexität, Performanz und Datenbank-Interaktion, und nach diesen
+recherchiert und gestestet. Nach Recherche und Tests werden die Ergebnisse in einem
+gewichteten Vergleich gegenübergestellt und ein optimales Framework bestimmt.
+Das Ergebnis dieser Arbeit zeigt, dass Flask, aufgrund der minimalistischen, einfachen
+und modularen Grundherangehensweise, das optimale Framework für das Anwendungs-
+beispiel ist und für die Erstellung der Software genutzt werden sollte.
+
+Das am Ende stehende Fazit erläutert zudem kurz die Eigenschaften der genannten Frame-
+works und verweist darauf, dass das Ergebnis einer solchen Analyse stark in Abhängigkeit
+zum geplanten Softwareprodukt steht.
+
 ## Quellen
 offizielle Dokumentationen:
 > - Django: https://docs.djangoproject.com/en/5.0/
 > - FastAPI: https://fastapi.tiangolo.com/de/
 > - Flask: https://flask.palletsprojects.com/en/stable/
+
+Repositories
+> - Django: https://github.com/django/django
+> - FastAPI https://github.com/fastapi/fastapi
+> - Flask https://github.com/pallets/flask
 
 Benchmarks:
 > - TechEmpower: https://www.techempower.com/benchmarks/#section=data-r21
@@ -35,21 +59,14 @@ Sonstiges:
 ## Hilfsmittel
 > - LaTeX-Vorlage: https://github.com/pmichaillat/latex-paper
 > - Comprehensive TeX Archive Network http://ctan.org
-> - Overleaf https://www.overleaf.com
 > - Visual Studio Code 1.106
-> - Windows 10 22H2
-> - Windows 11 24H2
+> - Windows 10 22H2, 11 24H2
 > - Ubuntu 24.04.
-> - Google Gemini
->> - Gemini 2.5 Flash
->> - Gemini 3 Pro
-> - Python
->> - Version 3.12
->> - Version 3.13
->> - Version 3.14
-> - dict.leo.org by LEO GmbH
+> - Google Gemini 2.5 Flash, 3.0 Fast, 3.0 Pro
+> - Python 3.12, 3.13, 3.14
+> - dict.leo.org
 > - openthesaurus.de
 > - korrekturen.de
 > - silbentrennung24.de
-> - Google-Scholar
-> - Korrekturlesende
+> - google.com / scholar.google.com
+> - Korrekturlesende: Dennis, Nicole (ausschließlich Vornamen, aufgrund von Privathaltungswünschen)
